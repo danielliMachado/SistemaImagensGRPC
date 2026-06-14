@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package image;
+
+service ImageService {
+
+  rpc UploadImage(stream ImageChunk)
+      returns (UploadResponse);
+
+  rpc DownloadImage(ImageRequest)
+      returns (stream ImageChunk);
+
+  rpc ListImages(Empty)
+      returns (ImageList);
+}
+
+message Empty {}
+
+message ImageChunk {
+  string filename = 1;
+  bytes data = 2;
+}
+
+message UploadResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ImageRequest {
+  string filename = 1;
+}
+
+message ImageList {
+  repeated string filenames = 1;
+}
