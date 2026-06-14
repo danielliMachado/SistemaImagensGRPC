@@ -188,13 +188,22 @@ def excluir_imagem():
 
 janela = tk.Tk()
 
+largura_tela = janela.winfo_screenwidth()
+altura_tela = janela.winfo_screenheight()
+
+largura_janela = largura_tela // 2
+altura_janela = altura_tela - 100
+
+janela.geometry(
+    f"{largura_janela}x{altura_janela}+0+0"
+)
+
+
 janela.title(
     "CLIENTE 1 - Upload e Gerenciamento"
 )
 
-janela.geometry(
-    "750x550"
-)
+
 
 janela.resizable(
     False,
@@ -261,16 +270,6 @@ btn_listar.pack(
     pady=10
 )
 
-btn_excluir = tk.Button(
-    janela,
-    text="Excluir Imagem",
-    width=30,
-    command=excluir_imagem
-)
-
-btn_excluir.pack(
-    pady=10
-)
 
 lista = tk.Listbox(
     janela,
@@ -280,6 +279,17 @@ lista = tk.Listbox(
 
 lista.pack(
     pady=15
+)
+
+btn_excluir = tk.Button(
+    janela,
+    text="Excluir Imagem",
+    width=30,
+    command=excluir_imagem
+)
+
+btn_excluir.pack(
+    pady=10
 )
 
 listar_imagens()

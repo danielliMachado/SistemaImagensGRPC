@@ -89,13 +89,20 @@ def baixar_imagem():
 
 janela = tk.Tk()
 
+largura_tela = janela.winfo_screenwidth()
+altura_tela = janela.winfo_screenheight()
+
+largura_janela = largura_tela // 2
+altura_janela = altura_tela - 100
+
+janela.geometry(
+    f"{largura_janela}x{altura_janela}+{largura_janela}+0"
+)
+
 janela.title(
     "CLIENTE 2 - Download"
 )
 
-janela.geometry(
-    "700x500"
-)
 
 tk.Label(
     janela,
