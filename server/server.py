@@ -39,6 +39,26 @@ class ImageService(image_service_pb2_grpc.ImageServiceServicer):
         return image_service_pb2.ImageList(
             filenames=arquivos
         )
+    def DeleteImage(self, request, context):
+
+        filepath = os.path.join(
+            IMAGE_DIR,
+            request.filename
+        )
+
+        if not os.path.exists(filepath):
+
+            return image_service_pb2.DeleteResponse(
+                success=False,
+                message="Imagem não encontrada."
+            )
+
+        os.remove(filepath)
+
+        return image_service_pb2.DeleteResponse(
+            success=True,
+            message="Imagem excluída com sucesso."
+        )
 
     def DownloadImage(self, request, context):
 
@@ -65,6 +85,7 @@ class ImageService(image_service_pb2_grpc.ImageServiceServicer):
                     filename=request.filename,
                     data=data
                 )
+    
 
 
 def serve():

@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13image_service.proto\x12\x05image\"\x07\n\x05\x45mpty\",\n\nImageChunk\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"2\n\x0eUploadResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\" \n\x0cImageRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\"\x1e\n\tImageList\x12\x11\n\tfilenames\x18\x01 \x03(\t2\xb2\x01\n\x0cImageService\x12\x39\n\x0bUploadImage\x12\x11.image.ImageChunk\x1a\x15.image.UploadResponse(\x01\x12\x39\n\rDownloadImage\x12\x13.image.ImageRequest\x1a\x11.image.ImageChunk0\x01\x12,\n\nListImages\x12\x0c.image.Empty\x1a\x10.image.ImageListb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13image_service.proto\x12\x05image\"\x07\n\x05\x45mpty\",\n\nImageChunk\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"2\n\x0eUploadResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\" \n\x0cImageRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\"\x1e\n\tImageList\x12\x11\n\tfilenames\x18\x01 \x03(\t\"2\n\x0e\x44\x65leteResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t2\xed\x01\n\x0cImageService\x12\x39\n\x0bUploadImage\x12\x11.image.ImageChunk\x1a\x15.image.UploadResponse(\x01\x12\x39\n\rDownloadImage\x12\x13.image.ImageRequest\x1a\x11.image.ImageChunk0\x01\x12,\n\nListImages\x12\x0c.image.Empty\x1a\x10.image.ImageList\x12\x39\n\x0b\x44\x65leteImage\x12\x13.image.ImageRequest\x1a\x15.image.DeleteResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,6 +41,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_IMAGEREQUEST']._serialized_end=169
   _globals['_IMAGELIST']._serialized_start=171
   _globals['_IMAGELIST']._serialized_end=201
-  _globals['_IMAGESERVICE']._serialized_start=204
-  _globals['_IMAGESERVICE']._serialized_end=382
+  _globals['_DELETERESPONSE']._serialized_start=203
+  _globals['_DELETERESPONSE']._serialized_end=253
+  _globals['_IMAGESERVICE']._serialized_start=256
+  _globals['_IMAGESERVICE']._serialized_end=493
 # @@protoc_insertion_point(module_scope)

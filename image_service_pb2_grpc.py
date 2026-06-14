@@ -49,6 +49,11 @@ class ImageServiceStub:
                 request_serializer=image__service__pb2.Empty.SerializeToString,
                 response_deserializer=image__service__pb2.ImageList.FromString,
                 _registered_method=True)
+        self.DeleteImage = channel.unary_unary(
+                '/image.ImageService/DeleteImage',
+                request_serializer=image__service__pb2.ImageRequest.SerializeToString,
+                response_deserializer=image__service__pb2.DeleteResponse.FromString,
+                _registered_method=True)
 
 
 class ImageServiceServicer:
@@ -72,6 +77,12 @@ class ImageServiceServicer:
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteImage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ImageServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -89,6 +100,11 @@ def add_ImageServiceServicer_to_server(servicer, server):
                     servicer.ListImages,
                     request_deserializer=image__service__pb2.Empty.FromString,
                     response_serializer=image__service__pb2.ImageList.SerializeToString,
+            ),
+            'DeleteImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteImage,
+                    request_deserializer=image__service__pb2.ImageRequest.FromString,
+                    response_serializer=image__service__pb2.DeleteResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -172,6 +188,33 @@ class ImageService:
             '/image.ImageService/ListImages',
             image__service__pb2.Empty.SerializeToString,
             image__service__pb2.ImageList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/image.ImageService/DeleteImage',
+            image__service__pb2.ImageRequest.SerializeToString,
+            image__service__pb2.DeleteResponse.FromString,
             options,
             channel_credentials,
             insecure,

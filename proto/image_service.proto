@@ -12,6 +12,9 @@ service ImageService {
 
   rpc ListImages(Empty)
       returns (ImageList);
+  
+  rpc DeleteImage(ImageRequest)
+  returns (DeleteResponse);
 }
 
 message Empty {}
@@ -32,4 +35,8 @@ message ImageRequest {
 
 message ImageList {
   repeated string filenames = 1;
+}
+message DeleteResponse {
+  bool success = 1;
+  string message = 2;
 }
